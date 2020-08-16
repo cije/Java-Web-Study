@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function fun() {
+            //发送异步请求
+            //1.创建核心对象
+            var xmlhttp;
+            if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp = new XMLHttpRequest();
+            } else {// code for IE6, IE5
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            //2.建立连接
+            /*
+                参数：
+                    1.请求方式
+                        * get方式请求参数在url后面拼接 send方法为空参
+                        * post方式请求参数send方法内定义
+                    2.请求的URL
+                    3.同步（false）或异步（true）请求
+             */
+            xmlhttp.open("GET", "ajaxServlet?username=tom", true);
+            //3.发送请求
+            xmlhttp.send();
+            //4.接收并处理来自服务器的响应结果
+            //获取方式 xmlhttp.responseText;
+            //当服务器响应成功后再获取
+
+            //当xmlhttp对象的就绪状态改变 时，出发时间onreadystatechange
+            xmlhttp.onreadystatechange = function () {
+                //判断readyState就绪状态是否为4，判断status响应代码是否为200
+                if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
+
+                    let responseText = xmlhttp.responseText;
+                    document.getElementById("myInput").value = responseText;
+                }
+            }
+        };
+    </script>
+</head>
+<body>
+<input type="button" value="发送异步请求" onclick="fun();"/>
+<input id="myInput"/>
+</body>
+</html>

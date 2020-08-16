@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>json数据语法_遍历</title>
+    <script>
+        const person = {"name": "张三", age: 23, "gender": true};
+
+        var ps = [
+            {"name": "张三", age: 223, "gender": true},
+            {"name": "李四", age: 23, "gender": true},
+            {"name": "王五", age: 23, "gender": false}
+        ];
+
+        //获取person对象中所有的键和值
+        //for in 循环
+        /*for (const key in person) {
+            alert(key+"："+person[key]);
+        }*/
+
+        //获取ps中的所有值
+        for (let i = 0; i < ps.length; i++) {
+            var p = ps[i];
+            for (const key in p) {
+                alert(key + "：" + p[key]);
+            }
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

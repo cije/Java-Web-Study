@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>json数据语法</title>
+    <script>
+        //1.定义基本格式
+        const person = {"name": "张三", age: 23, "gender": true};
+        // alert(person);
+        //获取name的值
+        let name = person.name;
+        // let name = person["name"];
+        // alert(name);
+
+        //2.嵌套格式 {} -> []
+        var persons = {
+            "persons": [
+                {"name": "张三", age: 223, "gender": true},
+                {"name": "李四", age: 23, "gender": true},
+                {"name": "王五", age: 23, "gender": false}
+            ]
+        };
+        // alert(persons);
+        var name1 = persons.persons[2].name;
+        // alert(name1);
+
+        var ps = [{"name": "张三", age: 223, "gender": true},
+            {"name": "李四", age: 23, "gender": true},
+            {"name": "王五", age: 23, "gender": false}];
+        // alert(ps);
+        alert(ps[1].name);
+    </script>
+</head>
+<body>
+
+</body>
+</html>
