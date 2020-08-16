@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../../js/jquery-3.5.1.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../js/jquery-migrate-3.3.1.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+        function changeColor(color) {
+            $("#myDiv").css("backgroundColor", color);
+        }
+
+        $(function () {
+            //获取按钮，调用toggle方法
+            $("#btn").toggle(
+                //改变div背景色backgroundColor 颜色为 green
+                function () {
+                    $("#myDiv").css("backgroundColor", "green");
+                },
+                //改变div背景色backgroundColor 颜色为 pink
+                function () {
+                    $("#myDiv").css("backgroundColor", "pink");
+                })
+
+
+        });
+
+    </script>
+</head>
+<body>
+
+
+<div id="myDiv" style="width:300px;height:100px;">
+    点击按钮变成绿色，再次点击红色
+</div>
+<br/>
+<input id="btn" type="button" value="事件切换">
+</body>
+</html>
+
